@@ -452,6 +452,17 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@media only screen and (max-width: 992px) {
+  .detail-left {
+    position: relative;
+    width: 100%;
+    left: 0;
+  }
+  .right-section {
+    position: relative;
+    left: 0;
+  }
+}
 
 .head-portrait {
   margin-top: 40px; 

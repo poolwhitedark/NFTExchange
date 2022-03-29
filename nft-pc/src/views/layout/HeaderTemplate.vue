@@ -2,9 +2,9 @@
   <div class="head-container">
     <div class="home-header" id="home-header" :style="style">
       <router-link to="/" class="head-FirstSvg">
-<!--        <img fit="contain" class="logo-image"-->
-<!--          :src="require('@/assets/img/home/banner-title.jpg')"-->
-<!--        />-->
+        <!--        <img fit="contain" class="logo-image"-->
+        <!--          :src="require('@/assets/img/home/banner-title.jpg')"-->
+        <!--        />-->
       </router-link>
 
       <div class="header-nav-wrapper">
@@ -21,13 +21,15 @@
       </div>
 
       <div class="head-wrapper">
-        <router-link class="nav-link"
+        <router-link
+          class="nav-link"
           :class="$route.name == 'Root' ? 'active' : ''"
           to="/"
         >
           {{ $t("navigation.explore") }}
         </router-link>
-        <router-link class="nav-link"
+        <router-link
+          class="nav-link"
           v-if="connected && user.coinbase"
           :class="$route.name == 'Items' ? 'active' : ''"
           to="/items"
@@ -37,19 +39,16 @@
         <router-link v-else class="nav-link" to="/items">
           {{ $t("navigation.myItems") }}
         </router-link>
-<!--        <div class="nav-link"-->
-<!--          v-if="connected && user.coinbase"-->
-<!--          @click="showFollowing = true"-->
-<!--        >-->
-<!--          {{ $t("navigation.following") }}-->
-<!--        </div>-->
-<!--        <router-link v-else class="nav-link" to="/connect">-->
-<!--          {{ $t("navigation.following") }}-->
-<!--        </router-link>-->
-        <router-link
-          class="create-link"
-          to="/Create"
-        >
+        <!--        <div class="nav-link"-->
+        <!--          v-if="connected && user.coinbase"-->
+        <!--          @click="showFollowing = true"-->
+        <!--        >-->
+        <!--          {{ $t("navigation.following") }}-->
+        <!--        </div>-->
+        <!--        <router-link v-else class="nav-link" to="/connect">-->
+        <!--          {{ $t("navigation.following") }}-->
+        <!--        </router-link>-->
+        <router-link class="create-link" to="/Create">
           <el-button class="custom-button" round size="mini">
             {{ $t("navigation.create") }}
           </el-button>
@@ -129,9 +128,7 @@
                 </el-skeleton>
 
                 <div class="myself-unit">
-                  <img class="paytoken-img"
-                    src="@/assets/img/FINGER.jpg"
-                  />
+                  <img class="paytoken-img" src="@/assets/img/FINGER.jpg" />
                   <div class="myself-unit-text">
                     <div class="myself-unit-title">
                       {{ $t("navigation.balance") }}
@@ -252,14 +249,17 @@ export default {
     }, 2000);
   },
   methods: {
-    handleScroll(){
-      let scrollTop = window.pageYOffset ||
+    handleScroll() {
+      let scrollTop =
+        window.pageYOffset ||
         document.documentElement.scrollTop ||
         document.body.scrollTop;
       if (scrollTop) {
-        if(scrollTop < 60){
-          this.style.backgroundColor = `rgba(255, 255, 255,${scrollTop / (scrollTop + 60)})`;
-        }else{
+        if (scrollTop < 60) {
+          this.style.backgroundColor = `rgba(255, 255, 255,${
+            scrollTop / (scrollTop + 60)
+          })`;
+        } else {
           this.style.backgroundColor = "#fff";
         }
       } else if (scrollTop == 0) {
@@ -267,7 +267,7 @@ export default {
       }
     },
     async searchClick() {
-      this.$router.push({ name: "Search", query: { keyword: this.keyword} });
+      this.$router.push({ name: "Search", query: { keyword: this.keyword } });
     },
     goItems() {
       this.$router.push({ name: "Items" });
@@ -459,7 +459,6 @@ export default {
   padding: 8px 12px;
 }
 
-
 .myself-header {
   display: flex;
   width: 100%;
@@ -500,7 +499,7 @@ export default {
 .myself-unit-text {
   margin-left: 10px;
 }
-.myself-unit-title{
+.myself-unit-title {
   width: 49px;
   height: 10px;
   font-size: 12px;
@@ -508,7 +507,7 @@ export default {
   color: #999;
   line-height: 12px;
 }
-.myself-unit-value{
+.myself-unit-value {
   margin-top: 5px;
   display: flex;
   justify-content: space-between;
@@ -564,6 +563,18 @@ export default {
 }
 
 @media only screen and (max-width: 992px) {
+  .nav-link.active[data-v-403a3422] {
+    color: #72c8f4;
+  }
+  .nav-link[data-v-403a3422] {
+    color: #72c8f4;
+  }
+  .header-nav-wrapper[data-v-403a3422] {
+    opacity: .7;
+  }
+  .home-header[data-v-403a3422] {
+    padding: 10px;
+  }
   .home-header {
     flex-wrap: wrap;
   }

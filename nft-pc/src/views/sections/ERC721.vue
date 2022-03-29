@@ -728,6 +728,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@media only screen and (max-width: 992px) {
+  .collection-detail[data-v-0fd74f17] {
+    margin: 0;
+    width: 100%;
+  }
+  .detail-right[data-v-0fd74f17] {
+    display: none;
+  }
+}
+
 .audio-section {
   flex-direction: column !important;
   align-items: center;

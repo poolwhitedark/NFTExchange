@@ -4,21 +4,24 @@
       <div class="mainSection">
         <div class="firstSection">
           <router-link to="/" class="head-FirstSvg">
-<!--            <img fit="contain"-->
-<!--              class="logo-image"-->
-<!--              :src="require('@/assets/img/home/banner-title.jpg')"-->
-<!--            />-->
+            <!--            <img fit="contain"-->
+            <!--              class="logo-image"-->
+            <!--              :src="require('@/assets/img/home/banner-title.jpg')"-->
+            <!--            />-->
           </router-link>
         </div>
         <div class="secondSection">
-          <router-link to="/"
+          <router-link
+            to="/"
             :class="$route.path == '/' ? 'router-text active' : 'router-text'"
           >
             {{ $t("footer.explore") }}
           </router-link>
           <router-link
             v-if="connected && user.coinbase"
-            :class="$route.name == 'Items' ? 'router-text active' : 'router-text'"
+            :class="
+              $route.name == 'Items' ? 'router-text active' : 'router-text'
+            "
             to="/items"
           >
             {{ $t("footer.myItems") }}</router-link
@@ -26,24 +29,28 @@
           <router-link v-else class="router-text" to="/items">
             {{ $t("footer.myItems") }}
           </router-link>
-<!--          <div-->
-<!--            v-if="connected && user.coinbase"-->
-<!--            class="router-text"-->
-<!--            @click="showFollowing = true"-->
-<!--          >-->
-<!--            {{ $t("navigation.following") }}-->
-<!--          </div>-->
-<!--          <router-link v-else class="router-text" to="/connect">-->
-<!--            {{ $t("navigation.following") }}-->
-<!--          </router-link>-->
+          <!--          <div-->
+          <!--            v-if="connected && user.coinbase"-->
+          <!--            class="router-text"-->
+          <!--            @click="showFollowing = true"-->
+          <!--          >-->
+          <!--            {{ $t("navigation.following") }}-->
+          <!--          </div>-->
+          <!--          <router-link v-else class="router-text" to="/connect">-->
+          <!--            {{ $t("navigation.following") }}-->
+          <!--          </router-link>-->
 
           <div class="language-router">
-
-            <el-popover v-model:visible="languagePopover" placement="top-start" trigger="click"
-              :show-arrow="false" popper-class="footPopover">
+            <el-popover
+              v-model:visible="languagePopover"
+              placement="top-start"
+              trigger="click"
+              :show-arrow="false"
+              popper-class="footPopover"
+            >
               <template #reference>
                 <div>
-                  <div class="language">{{$t('footer.language')}}</div>
+                  <div class="language">{{ $t("footer.language") }}</div>
                   <div class="language-text" v-if="$i18n.locale == 'en'">
                     English
                     <span class="iconfont icon-arrow-right"></span>
@@ -57,18 +64,21 @@
               <div class="popover">
                 <div class="popover-item" @click="languageSelect('English')">
                   <span>English</span>
-                  <span v-if="$i18n.locale == 'en'" class="iconfont icon-seleted"></span>
+                  <span
+                    v-if="$i18n.locale == 'en'"
+                    class="iconfont icon-seleted"
+                  ></span>
                 </div>
                 <div class="popover-item" @click="languageSelect('中文')">
                   <span>中文</span>
-                  <span v-if="$i18n.locale == 'zh'" class="iconfont icon-seleted"></span>
+                  <span
+                    v-if="$i18n.locale == 'zh'"
+                    class="iconfont icon-seleted"
+                  ></span>
                 </div>
               </div>
             </el-popover>
           </div>
-
-
-
         </div>
       </div>
       <div class="lastSection">
@@ -85,12 +95,8 @@
           </el-input>
         </div>
         <ul class="copyright">
-          <li class="item">
-          @ 2022 JUMI
-          </li>
-          <li class="item">
-          皖ICP备2021021234号-1
-          </li>
+          <li class="item">@ 2022 JUMI</li>
+          <li class="item">皖ICP备2021021234号-1</li>
         </ul>
       </div>
     </div>
@@ -113,7 +119,7 @@ export default {
     };
   },
   computed: {
-    share(){
+    share() {
       return this.$store.state.share;
     },
     connected() {
@@ -121,7 +127,7 @@ export default {
     },
     user() {
       return this.$store.state.user;
-    }
+    },
   },
   created() {
     if (localStorage.getItem("locale") == "") {
@@ -183,7 +189,6 @@ export default {
       }
       this.languagePopoverState = false;
     },
-
   },
 };
 </script>
@@ -212,29 +217,29 @@ export default {
   align-items: center;
 }
 .firstSection {
-  flex: 1;
+  // flex: 1;
   display: flex;
   margin-top: 20px;
   margin-bottom: 10px;
 }
-.logo-image{
+.logo-image {
   width: 200px;
 }
 
-
 .secondSection {
+  padding:  20px 10px;
   display: flex;
   flex: 1;
-  justify-content: flex-end;
-  align-items: flex-start;
+  justify-content: center;
+  // align-items: flex-start;
 }
-.router-text{
+.router-text {
   cursor: pointer;
   display: flex;
   font-size: 14px;
   font-weight: 400;
   margin-right: 20px;
-  &.active{
+  &.active {
     color: #fff;
   }
 }
@@ -255,25 +260,26 @@ export default {
   border-top: 1px solid rgba(4, 4, 5, 0.1);
   flex-wrap: wrap;
 }
-.copyright{
+.copyright {
   display: flex;
+  justify-content: center;
   flex: 1;
   margin-right: 32px;
-  .item{
+  .item {
     margin-right: 10px;
   }
 }
 
-.language-router{
+.language-router {
   display: flex;
   flex-direction: column;
   height: 14px;
   font-size: 14px;
   cursor: pointer;
-  .language{
+  .language {
     opacity: 0.7;
   }
-  .language-text{
+  .language-text {
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -281,7 +287,7 @@ export default {
 }
 
 .popover {
-  .popover-item{
+  .popover-item {
     display: flex;
     cursor: pointer;
     font-size: 14px;
@@ -290,15 +296,15 @@ export default {
     justify-content: space-between;
     align-items: center;
   }
-  .icon-seleted{
+  .icon-seleted {
     font-size: 24px;
     color: $primaryColor;
     font-weight: bold;
   }
 }
 
-
-.header-search{
+.header-search {
+  display: none;
   margin-left: 0;
   margin-right: 55px;
 }

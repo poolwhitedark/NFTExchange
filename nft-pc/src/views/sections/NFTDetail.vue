@@ -924,11 +924,26 @@ export default {
 }
 
 @media screen and (max-width: 780px) {
+  .left-section-image[data-v-22cf07f4] {
+    padding: 0 0 80px 0;
+  }
+  .TabSectionWrapper {
+    min-height: 200px;
+  }
+  .right-footer-body .el-button[data-v-22cf07f4] {
+    width: 50%;
+  }
+  .right-main-content[data-v-22cf07f4] {
+    padding: 20px;
+  }
   .left-section {
     right: 380px;
+    position: relative;
   }
   .right-section {
     width: 380px;
+    position: relative;
+    right: 0;
   }
   .right-footer-wrap {
     width: 380px;
