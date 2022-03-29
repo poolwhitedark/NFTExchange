@@ -51,11 +51,12 @@ const routes = [
       view: markRaw(ERC721)
     }
   },
+  // {
+  //   path: '/connect',
+  //   name: 'connect',
+  //   component: Connect,
+  // },
   {
-    path: '/connect',
-    name: 'connect',
-    component: Connect,
-  }, {
     path: '/profile',
     name: 'profile',
     component: NFooter,

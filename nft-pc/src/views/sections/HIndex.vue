@@ -42,19 +42,22 @@
         </filter-and-sort>
       </div>
     </div>
-    <H1>{{categoryName}}</H1>
-    <div class="new-nft-list" v-infinite-scroll="loadNftList">
-      <div class="nft">
-        <nft-item
-          v-for="(nft, i) in nftList"
-          :nft="nft"
-          :key="i"
-          :index="i"
-          @showDialog="showDialog"
-          @onLike="onLike"
-        >
-        </nft-item>
-        <nft-item-load :loadStatus="loadStatus"></nft-item-load>
+    <div v-for="(categoryName,i) in filters">
+      <h1>{{categoryName.name}}</h1>
+      <div class="new-nft-list" v-infinite-scroll="loadNftList">
+        <div class="nft">
+          <nft-item
+              v-for="(nft, i) in nftList"
+              :nft="nft"
+              :key="i"
+              :index="i"
+              @showDialog="showDialog"
+              @onLike="onLike"
+              :categoryName="categoryName.id"
+          >
+          </nft-item>
+<!--          <nft-item-load :loadStatus="loadStatus"></nft-item-load>-->
+        </div>
       </div>
     </div>
 
@@ -155,7 +158,7 @@ export default {
         limit: this.$store.state.pageLimit,
       },
       loadStatus: "",
-      categoryName:'出售列表',
+      categoryName:"",
     };
   },
   created() {
@@ -179,17 +182,13 @@ export default {
       this.filterId = this.filterId == filterId ? "" : filterId;
       this.query.page = 1;
       this.getNftList();
-      if(filterId==''){
-        this.categoryName='出售列表';
-        return false;
-      }
-      this.categoryName=filterId;
-      for (var i = 0; i < this.filters.length; i++) {
-        let filter = this.filters[i];
-        if (filter.id == filterId) {
-          this.categoryName=filter.name;
-        }
-      }
+      console.log(this.filters)
+      // for (var i = 0; i < this.filters.length; i++) {
+      //   let filter = this.filters[i];
+      //   if (filter.id == filterId) {
+      //     this.categoryName=filter.name;
+      //   }
+      // }
     },
     getFilters() {
       this.$api("category.list").then((res) => {
@@ -227,6 +226,7 @@ export default {
           console.log(res)
           if (data.page == 1) this.nftList = [];
           this.nftList = this.nftList.concat(res.data.list);
+          // console.log(JSON.parse(JSON.stringify(this.nftList[0])).nft.id);
           this.queryFunction(res.data.list);
           if (res.data.list.length < data.limit) {
             this.loadStatus = "over";

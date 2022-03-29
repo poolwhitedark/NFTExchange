@@ -32,7 +32,7 @@ service.interceptors.response.use(
       if(!store.state.connected){
         tools.message(i18n.global.t('global.needLogin'), "error");
         setTimeout(() => {
-          router.push("/connect");
+          // router.push("/connect");
         }, 1500)
       }else{
         store.dispatch("signLogin");

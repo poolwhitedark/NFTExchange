@@ -1,5 +1,5 @@
 <template>
-  <div class="nft-item">
+  <div class="nft-item" v-if="this.nft.nft.categoryId==this.categoryName">
     <div class="inner">
       <div class="cover-padding">
         <div class="cover" @click="goDetail">
@@ -186,6 +186,10 @@ export default {
       type: String,
       default: "",
     },
+    categoryName:{
+      type: String,
+      default: ""
+    }
   },
   data() {
     return {
