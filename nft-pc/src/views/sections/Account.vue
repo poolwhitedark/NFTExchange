@@ -236,7 +236,7 @@ import Share from "@/components/Share";
 import NftTabItem from "@/mixins/NftTabItem";
 
 export default {
-  name: "Items",
+  name: "Account",
   mixins: [NftDialog, NftTabItem],
   components: {
     FollowPopup,
@@ -578,6 +578,19 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@media only screen and (max-width: 992px) {
+  .detail-left {
+    margin-top: 30px;
+    position: relative!important;
+    width: 100%!important;
+    left: 0!important;
+  }
+  .right-section {
+    position: relative!important;
+    width: 100%;
+    left: 0!important;
+  }
+}
 .replace-cover {
   height: 19px;
   border: 1px solid #000000;

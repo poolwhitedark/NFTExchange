@@ -563,16 +563,16 @@ export default {
 }
 
 @media only screen and (max-width: 992px) {
-  .nav-link.active[data-v-403a3422] {
+  .nav-link.active {
     color: #72c8f4!important;
   }
-  .nav-link[data-v-403a3422] {
+  .nav-link {
     color: #72c8f4!important;
   }
-  .header-nav-wrapper[data-v-403a3422] {
+  .header-nav-wrapper {
     opacity: .7!important;
   }
-  .home-header[data-v-403a3422] {
+  .home-header {
     padding: 10px!important;
   }
   .home-header {

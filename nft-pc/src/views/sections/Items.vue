@@ -454,12 +454,14 @@ export default {
 <style lang="scss" scoped>
 @media only screen and (max-width: 992px) {
   .detail-left {
-    position: relative;
+    margin-top: 30px;
+    position: relative!important;
     width: 100%!important;
     left: 0!important;
   }
   .right-section {
     position: relative!important;
+    width: 100%;
     left: 0!important;
   }
 }
