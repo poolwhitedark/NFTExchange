@@ -54,10 +54,10 @@ module.exports = {
         disableHostCheck: false,
         proxy: {
             '/fingernft': {
-              target: 'http://114.117.0.196:20004',
+              target: 'http://47.118.53.248:20004',
             },
             "/static":{
-              target: 'http://114.117.0.196:20004',
+              target: 'http://47.118.53.248:20004',
               changeOrigin: true,
             },
         },

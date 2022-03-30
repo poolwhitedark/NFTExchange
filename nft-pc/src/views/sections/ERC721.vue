@@ -730,11 +730,11 @@ export default {
 <style lang="scss" scoped>
 @media only screen and (max-width: 992px) {
   .collection-detail[data-v-0fd74f17] {
-    margin: 0;
-    width: 100%;
+    margin: 0!important;
+    width: 100%!important;
   }
   .detail-right[data-v-0fd74f17] {
-    display: none;
+    display: none!important;
   }
 }
 
