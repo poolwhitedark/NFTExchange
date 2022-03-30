@@ -564,16 +564,16 @@ export default {
 
 @media only screen and (max-width: 992px) {
   .nav-link.active[data-v-403a3422] {
-    color: #72c8f4;
+    color: #72c8f4!important;
   }
   .nav-link[data-v-403a3422] {
-    color: #72c8f4;
+    color: #72c8f4!important;
   }
   .header-nav-wrapper[data-v-403a3422] {
-    opacity: .7;
+    opacity: .7!important;
   }
   .home-header[data-v-403a3422] {
-    padding: 10px;
+    padding: 10px!important;
   }
   .home-header {
     flex-wrap: wrap;

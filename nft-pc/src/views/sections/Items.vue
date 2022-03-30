@@ -455,12 +455,12 @@ export default {
 @media only screen and (max-width: 992px) {
   .detail-left {
     position: relative;
-    width: 100%;
-    left: 0;
+    width: 100%!important;
+    left: 0!important;
   }
   .right-section {
-    position: relative;
-    left: 0;
+    position: relative!important;
+    left: 0!important;
   }
 }
 

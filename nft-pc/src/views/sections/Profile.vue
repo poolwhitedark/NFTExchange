@@ -165,6 +165,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@media only screen and (max-width: 992px) {
+  .main-Wrapper2[data-v-2d39b6c2] {
+    width: 100%!important;
+  }
+}
 .main-Wrapper {
   display: flex;
   justify-content: center;
