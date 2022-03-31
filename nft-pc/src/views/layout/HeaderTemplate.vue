@@ -1,6 +1,6 @@
 <template>
   <div class="head-container">
-    <div class="home-header" id="home-header" :style="style">
+    <div :class="isfixed? 'isfixed':'home-header'" id="home-header" :style="style">
       <router-link to="/" class="head-FirstSvg">
         <!--        <img fit="contain" class="logo-image"-->
         <!--          :src="require('@/assets/img/home/banner-title.jpg')"-->
@@ -199,10 +199,19 @@ export default {
     NotifyDialog,
     FollowPopup,
   },
+  props: {
+    mHeight: String,
+    mSrc: String
+  },
+  mounted() {
+    console.log(this.mHeight);
+  },
   data: function () {
     return {
+      isfixed: false,
       style: {
         backgroundColor: "",
+        'margin-top': this.mHeight
       },
       keyword: this.$route.query.keyword,
       showFollowing: false,
@@ -254,6 +263,7 @@ export default {
         window.pageYOffset ||
         document.documentElement.scrollTop ||
         document.body.scrollTop;
+        console.log('===========',scrollTop);
       if (scrollTop) {
         if (scrollTop < 60) {
           this.style.backgroundColor = `rgba(255, 255, 255,${
@@ -261,9 +271,14 @@ export default {
           })`;
         } else {
           this.style.backgroundColor = "#fff";
+          this.isfixed = true
+          this.style['margin-top'] = "0px";
         }
       } else if (scrollTop == 0) {
         this.style.backgroundColor = "transparent";
+        this.isfixed = false
+        console.log(this.mSrc);
+        if(this.mSrc == 'common')  this.style['margin-top'] = "135px";
       }
     },
     async searchClick() {
@@ -279,6 +294,47 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@media only screen and (max-width: 992px) {
+  // .nav-link.active {
+  //   color: #72c8f4!important;
+  // }
+  // .nav-link {
+  //   color: #72c8f4!important;
+  // }
+  // .header-nav-wrapper {
+  //   opacity: .7!important;
+  // }
+  .isfixed {
+    flex-wrap: wrap!important;
+    padding: 10px!important;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 99999;
+  }
+  .home-header {
+    flex-wrap: wrap!important;
+    padding: 10px!important;
+    // margin-top: var(--mHeight)!important;
+    z-index: 99999!important;
+  }
+  .header-nav-wrapper {
+    padding-left: 0px;
+  }
+  .header-search {
+    margin-left: 0;
+    // min-width: 100px;
+    width: 100%;
+    background: #eee;
+  }
+  .head-wrapper {
+    padding: 0;
+  }
+  .notice-link {
+    margin-left: 0;
+  }
+}
 .logo-image {
   height: 26px;
   line-height: 0px;
@@ -562,36 +618,7 @@ export default {
   padding: 1px 3px;
 }
 
-@media only screen and (max-width: 992px) {
-  .nav-link.active {
-    color: #72c8f4!important;
-  }
-  .nav-link {
-    color: #72c8f4!important;
-  }
-  .header-nav-wrapper {
-    opacity: .7!important;
-  }
-  .home-header {
-    padding: 10px!important;
-  }
-  .home-header {
-    flex-wrap: wrap;
-  }
-  .header-nav-wrapper {
-    padding-left: 0px;
-  }
-  .header-search {
-    margin-left: 0;
-    min-width: 100px;
-  }
-  .head-wrapper {
-    padding: 0;
-  }
-  .notice-link {
-    margin-left: 0;
-  }
-}
+
 .skeleton-name {
   width: 168px;
   height: 21px;

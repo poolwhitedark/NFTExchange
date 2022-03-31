@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <HeaderTemplate/>
+    <HeaderTemplate mHeight="0px" mSrc="mark"/>
     <BodyTemplate class="main-wrapper" :current-view="currentView" />
   </div>
 </template>

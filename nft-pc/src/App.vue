@@ -90,8 +90,8 @@ body {
   margin: 0 auto;
   -webkit-overflow-scrolling: touch;
 }
-.app-wrapper {
-  height: 100%;
-}
+// .app-wrapper {
+//   height: 100%;
+// }
 </style>
 

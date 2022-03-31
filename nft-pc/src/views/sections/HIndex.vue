@@ -6,8 +6,6 @@
       :fit="'fill'"
     ></el-image>
     <div class="banner-context main-wrapper">
-<!--      <el-image class="banner-title" :src="require('@/assets/img/home/banner-title.jpg')">-->
-<!--      </el-image>-->
       <div class="tip">{{ $t('home.tip1')}}</div>
       <div class="tip">{{ $t('home.tip2') }}</div>
     </div>
@@ -243,7 +241,30 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-
+@media screen and (max-width: 992px) {
+  .search-options {
+    margin-top: 100px!important;
+  }
+}
+@media screen and (max-width: 550px) {
+  .search-options {
+    display: flex;
+    flex-direction: unset;
+  }
+  .category-tags {
+    background: #f4f4f4;
+    border-radius: 5px;
+    display: flex;
+    margin-left: 0px;
+    transform: inherit;
+    justify-content: space-around;
+  }
+  .nft-sorts {
+    display: flex;
+    align-items: center;
+    line-height: 18px;
+  }
+}
 .sort-icon {
   width: 7px;
   height: 4px;
@@ -344,25 +365,7 @@ export default {
 }
 
 
-@media screen and (max-width: 550px) {
-  .search-options {
-    display: flex;
-    flex-direction: unset;
-  }
-  .category-tags {
-    background: #f4f4f4;
-    border-radius: 5px;
-    display: flex;
-    margin-left: 0px;
-    transform: inherit;
-    justify-content: space-around;
-  }
-  .nft-sorts {
-    display: flex;
-    align-items: center;
-    line-height: 18px;
-  }
-}
+
 
 
 </style>

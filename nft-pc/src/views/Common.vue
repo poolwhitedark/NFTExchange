@@ -1,6 +1,6 @@
 <template>
   <div class="common-wraper">
-    <HeaderTemplate />
+    <HeaderTemplate mHeight='135px' mSrc="common"/>
     <BodyTemplate class="main-wrapper" :current-view="currentView" />
     <FooterTemplate />
   </div>
