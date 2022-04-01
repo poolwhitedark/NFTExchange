@@ -274,7 +274,8 @@ export default {
           this.isfixed = true
           this.style['margin-top'] = "0px";
         }
-      } else if (scrollTop == 0) {
+      } 
+      else if (scrollTop == 0) {
         this.style.backgroundColor = "transparent";
         this.isfixed = false
         console.log(this.mSrc);
@@ -295,6 +296,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 @media only screen and (max-width: 992px) {
+  .header-nav-wrapper {
+    min-width: 100%!important;
+  }
   // .nav-link.active {
   //   color: #72c8f4!important;
   // }
@@ -305,27 +309,27 @@ export default {
   //   opacity: .7!important;
   // }
   .isfixed {
-    flex-wrap: wrap!important;
+    transition: margin-top linear .25s;
     padding: 10px!important;
     position: fixed;
     left: 0;
     top: 0;
     right: 0;
-    z-index: 99999;
+    z-index: 9;
   }
   .home-header {
-    flex-wrap: wrap!important;
+    transition: margin-top linear .25s;
     padding: 10px!important;
     // margin-top: var(--mHeight)!important;
-    z-index: 99999!important;
+    z-index: 9!important;
   }
   .header-nav-wrapper {
     padding-left: 0px;
   }
   .header-search {
-    margin-left: 0;
-    // min-width: 100px;
-    width: 100%;
+    margin-left: 0px!important;
+    // min-width: 100px!important;
+    min-width: 100%!important;
     background: #eee;
   }
   .head-wrapper {
@@ -340,14 +344,15 @@ export default {
   line-height: 0px;
 }
 .home-header {
+  transition: margin-top linear .25s;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   padding: 5px 30px;
-  position: fixed;
-  right: 0;
-  left: 0;
-  top: 0;
+  position: fixed!important;
+  right: 0!important;
+  left: 0!important;
+  top: 0!important;
   font-size: 15px;
   line-height: 40px;
   color: #fff;
@@ -457,7 +462,7 @@ export default {
 .head-wrapper {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
 }
 .head-connect {
   padding: 0 15px;

@@ -245,6 +245,9 @@ export default {
   .search-options {
     margin-top: 100px!important;
   }
+  .banner-img {
+    height: 140px!important;
+  }
 }
 @media screen and (max-width: 550px) {
   .search-options {
