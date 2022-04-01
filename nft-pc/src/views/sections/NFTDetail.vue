@@ -941,12 +941,12 @@ export default {
     position: relative;
   }
   .right-section {
-    width: 380px;
+    width: 100%;
     position: relative;
     right: 0;
   }
   .right-footer-wrap {
-    width: 380px;
+    width: 100%;
   }
 }
 .noFoundclass {

@@ -1,6 +1,6 @@
 <template>
   <div class="head-container">
-    <div :class="isfixed? 'isfixed':'home-header'" id="home-header" :style="style">
+    <div class="home-header" id="home-header" :style="style">
       <router-link to="/" class="head-FirstSvg">
         <!--        <img fit="contain" class="logo-image"-->
         <!--          :src="require('@/assets/img/home/banner-title.jpg')"-->
@@ -263,15 +263,16 @@ export default {
         window.pageYOffset ||
         document.documentElement.scrollTop ||
         document.body.scrollTop;
-        console.log('===========',scrollTop);
+        // console.log('===========',scrollTop);
       if (scrollTop) {
-        if (scrollTop < 60) {
-          this.style.backgroundColor = `rgba(255, 255, 255,${
-            scrollTop / (scrollTop + 60)
-          })`;
-        } else {
+        if (scrollTop < 135) {
+          if(this.mSrc == 'common') {
+            this.style['margin-top'] = 140-scrollTop + "px";
+          }
+          this.style.backgroundColor = `rgba(255, 255, 255,1)`;
+        } 
+        else {
           this.style.backgroundColor = "#fff";
-          this.isfixed = true
           this.style['margin-top'] = "0px";
         }
       } 
@@ -279,7 +280,9 @@ export default {
         this.style.backgroundColor = "transparent";
         this.isfixed = false
         console.log(this.mSrc);
-        if(this.mSrc == 'common')  this.style['margin-top'] = "135px";
+        if(this.mSrc == 'common') {
+          this.style['margin-top'] = "135px";
+        } 
       }
     },
     async searchClick() {
@@ -309,7 +312,7 @@ export default {
   //   opacity: .7!important;
   // }
   .isfixed {
-    transition: margin-top linear .25s;
+    // transition: margin-top linear .25s;
     padding: 10px!important;
     position: fixed;
     left: 0;
@@ -318,7 +321,7 @@ export default {
     z-index: 9;
   }
   .home-header {
-    transition: margin-top linear .25s;
+    // transition: margin-top linear .05s;
     padding: 10px!important;
     // margin-top: var(--mHeight)!important;
     z-index: 9!important;
@@ -344,7 +347,7 @@ export default {
   line-height: 0px;
 }
 .home-header {
-  transition: margin-top linear .25s;
+  // transition: margin-top linear .25s;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
